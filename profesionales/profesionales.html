@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+    <!-- Enlace a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .status-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del estado y botón de cambio -->
+    <div class="status-container">
+        <span id="status-text" class="me-2">Disponible</span>
+        <button id="toggle-status" class="btn btn-success btn-sm">Disponible</button>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Listado de Usuarios</h2>
+        <!-- Tabla de usuarios -->
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col" style="width: 5%;">Seleccionar</th>
+                    <th scope="col">Nombre del Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila de usuario con botón de opción (radio) en la primera columna -->
+                <tr>
+                    <td class="text-center">
+                        <input type="radio" name="usuario" class="form-check-input">
+                    </td>
+                    <td>Usuario 1</td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <input type="radio" name="usuario" class="form-check-input">
+                    </td>
+                    <td>Usuario 2</td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <input type="radio" name="usuario" class="form-check-input">
+                    </td>
+                    <td>Usuario 3</td>
+                </tr>
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script de Bootstrap y JavaScript para cambiar el estado -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Elementos del DOM
+        const statusText = document.getElementById('status-text');
+        const toggleStatusButton = document.getElementById('toggle-status');
+
+        // Evento para alternar entre "Disponible" y "Ocupado"
+        toggleStatusButton.addEventListener('click', () => {
+            if (statusText.textContent === 'Disponible') {
+                statusText.textContent = 'Ocupado';
+                toggleStatusButton.textContent = 'Ocupado';
+                toggleStatusButton.classList.remove('btn-success');
+                toggleStatusButton.classList.add('btn-danger');
+            } else {
+                statusText.textContent = 'Disponible';
+                toggleStatusButton.textContent = 'Disponible';
+                toggleStatusButton.classList.remove('btn-danger');
+                toggleStatusButton.classList.add('btn-success');
+            }
+        });
+    </script>
+</body>
+</html>
