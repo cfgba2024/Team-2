@@ -1,0 +1,91 @@
+Table pacientes {
+  id integer [primary key]
+  codigo_anonimo varchar [unique, not null]
+  documento varchar [unique, not null]
+  numero_recpcion varchar [unique, not null] // Número aleatorio asignado en recepción
+  fecha_nacimiento date [not null]
+  genero varchar [not null]
+  historia_clinica text
+  tel_contacto varchar
+  email_contacto varchar
+  direccion_contacto varchar
+  created_at timestamp [default: `now()`]
+}
+
+Table recepcion {
+  id integer [primary key]
+  nombre varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table medicos {
+  id integer [primary key]
+  nombre varchar [not null]
+  especialidad varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table farmaceuticos {
+  id integer [primary key]
+  nombre varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table psicologos {
+  id integer [primary key]
+  nombre varchar [not null]
+  especialidad varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table abogados {
+  id integer [primary key]
+  nombre varchar [not null]
+  especialidad varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table laboratorio {
+  id integer [primary key]
+  nombre varchar [not null]
+  tipo varchar [not null]
+  email varchar
+  tel_contacto varchar
+}
+
+Table citas {
+  id integer [primary key]
+  paciente_id integer [not null]
+  medico_id integer
+  psicologo_id integer
+  farmaceutico_id integer
+  abogado_id integer
+  laboratorio_id integer
+  fecha timestamp [not null]
+  motivo varchar
+  estado varchar [not null] // Estado de la cita (Ej: 'En espera', 'En consulta', 'Finalizada')
+  created_at timestamp [default: `now()`]
+}
+
+Table sala_espera {
+  id integer [primary key]
+  paciente_id integer [not null] // Relacionado con paciente
+  cita_id integer [not null] // Relacionado con cita
+  numero_sala varchar [not null] // Número asignado en la sala de espera (pantalla)
+  estado varchar [not null] // Estado del paciente en la sala de espera (Ej: 'En espera', 'En consulta')
+  created_at timestamp [default: `now()`]
+}
+
+Ref: citas.paciente_id > pacientes.id
+Ref: citas.medico_id > medicos.id
+Ref: citas.psicologo_id > psicologos.id
+Ref: citas.farmaceutico_id > farmaceuticos.id
+Ref: citas.abogado_id > abogados.id
+Ref: citas.laboratorio_id > laboratorio.id
+Ref: sala_espera.paciente_id > pacientes.id
+Ref: sala_espera.cita_id > citas.id
