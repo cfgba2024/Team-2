@@ -3,81 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
+    <title>Tabla de Usuarios</title>
     <!-- Enlace a Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a Font Awesome para el ícono -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .status-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .topbar {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+        }
+        /* Estilos de la tabla */
+        .table-bordered-outer {
+            width: 50%; /* Ancho de la tabla */
+            margin: 0 auto; /* Centrar la tabla */
+            border-left: 2px solid red;
+            border-right: 2px solid red;
+            border-top: 2px solid gray;  /* Color gris para el borde superior */
+            border-bottom: 2px solid gray; /* Color gris para el borde inferior */
+        }
+        .table-bordered-outer th, .table-bordered-outer td {
+            border-left: none; /* Sin borde izquierdo entre celdas */
+            border-right: none; /* Sin borde derecho entre celdas */
+            border-top: 2px solid gray; /* Bordes horizontales gris */
+            border-bottom: 2px solid gray; /* Bordes horizontales gris */
+        }
+        /* Span de color */
+        .color-span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #219044; /* Color del span */
         }
     </style>
 </head>
 <body>
-    <!-- Contenedor del estado y botón de cambio -->
-    <div class="status-container">
-        <span id="status-text" class="me-2">Disponible</span>
-        <button id="toggle-status" class="btn btn-success btn-sm">Disponible</button>
+    <div class="topbar">
+        <!-- Imagen a la izquierda -->
+        <div class="d-flex align-items-center">
+            <img src="../assets/imgs/topbar.png" alt="Logo" style="width:150px;height:auto;"> <!-- Reemplaza esta URL con tu imagen -->
+        </div>
     </div>
-
     <!-- Contenedor principal -->
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Listado de Usuarios</h2>
-        <!-- Tabla de usuarios -->
-        <table class="table table-bordered">
-            <thead class="table-light">
-                <tr>
-                    <th scope="col" style="width: 5%;">Seleccionar</th>
-                    <th scope="col">Nombre del Usuario</th>
-                </tr>
-            </thead>
+        <!-- Tabla centrada con solo los bordes verticales en el contorno -->
+        <div style="justify-content: right; display: flex; width: 50%;
+    margin: 0 auto;">
+            <span class="color-span vertical-align= center"></span><span class="" style="vertical-align: center;">Disponible</span>
+        </div>
+            <table class="table table-bordered-outer text-center">
             <tbody>
-                <!-- Fila de usuario con botón de opción (radio) en la primera columna -->
+                <!-- Fila de ejemplo con span de color, nombre de usuario y un icono de hoja de papel -->
                 <tr>
-                    <td class="text-center">
-                        <input type="radio" name="usuario" class="form-check-input">
+                    <td>
+                        <span style="color: #a77a32;">L9I</span>
                     </td>
                     <td>Usuario 1</td>
+                    <td><a data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../assets/imgs/description.png" alt="Documento" style="width: 30px; height: 30px;"></a></td>
                 </tr>
                 <tr>
-                    <td class="text-center">
-                        <input type="radio" name="usuario" class="form-check-input">
+                    <td>
+                        <span style="color: #a4297b;">K6T
                     </td>
                     <td>Usuario 2</td>
                 </tr>
                 <tr>
-                    <td class="text-center">
-                        <input type="radio" name="usuario" class="form-check-input">
+                    <td>
+                        <span style="vertical-align: middle;">G9V</span>
                     </td>
                     <td>Usuario 3</td>
+                    <td><a data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../assets/imgs/description.png" alt="Documento" style="width: 30px; height: 30px;"></a></td>
                 </tr>
-                <!-- Añadir más filas según sea necesario -->
+                <tr>
+                    <td>
+                        <span style="color: #532190;">P5O</span>
+                    </td>
+                    <td>Usuario 4</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../assets/imgs/description.png" alt="Documento" style="width: 30px; height: 30px;"></a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="color: #15959e">L9E</span>
+                    </td>
+                    <td>Usuario 5</td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span style=" color: #a4297b;">K7X</span>
+                    </td>
+                    <td>Usuario 6</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../assets/imgs/description.png" alt="Documento" style="width: 30px; height: 30px;"></a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="color: #15189e;">O6G</span>
+                    </td>
+                    <td>Usuario 7</td>
+                    <td><a  href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../assets/imgs/description.png" alt="Documento" style="width: 30px; height: 30px;"></a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="color: #3e9145;">P2K</span>
+                    </td>
+                    <td>Usuario 8</td>
+
+                </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Script de Bootstrap y JavaScript para cambiar el estado -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Elementos del DOM
-        const statusText = document.getElementById('status-text');
-        const toggleStatusButton = document.getElementById('toggle-status');
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- Nombre del usuario a la izquierda y ID del usuario a la derecha -->
+                    <div class="d-flex justify-content-between w-100">
+                        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0;"></h5>
+                        <span id="user-id" class="text-muted" style="font-size: 18px;">Nombre del paciente</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Texto Lorem Ipsum en el centro -->
+                    <p>El paciente se encuentra en una situación muy vulnerable. Es necesaria la contención emocional</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <!-- Dos botones centrados -->
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" style="background-color: white;
+                    color: #380F5C;
+                    border-color: #380F5C;">Atras</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #380F5C;">Iniciar consulta</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Evento para alternar entre "Disponible" y "Ocupado"
-        toggleStatusButton.addEventListener('click', () => {
-            if (statusText.textContent === 'Disponible') {
-                statusText.textContent = 'Ocupado';
-                toggleStatusButton.textContent = 'Ocupado';
-                toggleStatusButton.classList.remove('btn-success');
-                toggleStatusButton.classList.add('btn-danger');
-            } else {
-                statusText.textContent = 'Disponible';
-                toggleStatusButton.textContent = 'Disponible';
-                toggleStatusButton.classList.remove('btn-danger');
-                toggleStatusButton.classList.add('btn-success');
-            }
-        });
-    </script>
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
